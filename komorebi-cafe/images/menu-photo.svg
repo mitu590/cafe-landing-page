@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="木漏れ日の差すテーブルに置かれたメニュー表とコーヒー">
+  <defs>
+    <linearGradient id="table" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8b6239"/>
+      <stop offset="1" stop-color="#5d3f22"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff6cf" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#ffd980" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffdf6"/>
+      <stop offset="1" stop-color="#efe4cd"/>
+    </linearGradient>
+    <radialGradient id="bokeh">
+      <stop offset="0" stop-color="#fff8d8" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#fff8d8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="10"/></filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#2b1c0e" flood-opacity=".45"/>
+    </filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".06"/></feComponentTransfer>
+    </filter>
+  </defs>
+
+  <!-- 木のテーブル -->
+  <rect width="1200" height="800" fill="url(#table)"/>
+  <g opacity=".18" stroke="#3a2512" stroke-width="3" fill="none">
+    <path d="M0 120 Q300 100 600 130 T1200 115"/>
+    <path d="M0 330 Q320 305 640 340 T1200 320"/>
+    <path d="M0 560 Q280 535 590 570 T1200 545"/>
+    <path d="M0 720 Q340 695 700 730 T1200 710"/>
+  </g>
+
+  <!-- 斜めから差す木漏れ日 -->
+  <g filter="url(#soft)" opacity=".75">
+    <path d="M-120 -60 L520 -60 L160 860 L-320 860 Z" fill="url(#sun)"/>
+    <path d="M420 -60 L640 -60 L420 860 L140 860 Z" fill="url(#sun)" opacity=".6"/>
+    <path d="M860 -60 L1010 -60 L900 860 L700 860 Z" fill="url(#sun)" opacity=".5"/>
+  </g>
+
+  <!-- 葉っぱのシルエット -->
+  <g fill="#2f4a25" opacity=".55" filter="url(#soft)">
+    <ellipse cx="80" cy="60" rx="90" ry="34" transform="rotate(-28 80 60)"/>
+    <ellipse cx="210" cy="20" rx="80" ry="30" transform="rotate(18 210 20)"/>
+    <ellipse cx="300" cy="95" rx="70" ry="26" transform="rotate(-12 300 95)"/>
+  </g>
+
+  <!-- 光の丸ボケ -->
+  <g>
+    <circle cx="980" cy="140" r="70" fill="url(#bokeh)"/>
+    <circle cx="1090" cy="260" r="44" fill="url(#bokeh)"/>
+    <circle cx="880" cy="70" r="36" fill="url(#bokeh)"/>
+    <circle cx="150" cy="640" r="55" fill="url(#bokeh)" opacity=".6"/>
+  </g>
+
+  <!-- メニュー表（主役） -->
+  <g filter="url(#shadow)" transform="rotate(-4 600 400)">
+    <rect x="380" y="150" width="440" height="520" rx="10" fill="url(#paper)"/>
+    <rect x="380" y="150" width="440" height="520" rx="10" fill="none" stroke="#d8c7a5" stroke-width="2"/>
+    <text x="600" y="225" text-anchor="middle" font-family="Georgia, serif" font-size="38" fill="#6b8e5a" letter-spacing="6">MENU</text>
+    <line x1="470" y1="248" x2="730" y2="248" stroke="#d9a441" stroke-width="3"/>
+    <g font-family="'Hiragino Sans','Yu Gothic',sans-serif" font-size="20" fill="#4a4034">
+      <text x="425" y="305">ブレンドコーヒー</text><text x="775" y="305" text-anchor="end">450</text>
+      <text x="425" y="360">カフェラテ</text><text x="775" y="360" text-anchor="end">520</text>
+      <text x="425" y="415">ほうじ茶ラテ</text><text x="775" y="415" text-anchor="end">480</text>
+      <text x="425" y="470">季節のタルト</text><text x="775" y="470" text-anchor="end">580</text>
+      <text x="425" y="525">自家製プリン</text><text x="775" y="525" text-anchor="end">450</text>
+      <text x="425" y="580">チーズケーキ</text><text x="775" y="580" text-anchor="end">500</text>
+    </g>
+    <g stroke="#c9b892" stroke-width="1.5" stroke-dasharray="4 6">
+      <path d="M425 313 H770 M425 368 H770 M425 423 H770 M425 478 H770 M425 533 H770 M425 588 H770"/>
+    </g>
+    <text x="600" y="635" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#8a7a5e" letter-spacing="2">喫茶 こもれび</text>
+  </g>
+
+  <!-- コーヒーカップ -->
+  <g filter="url(#shadow)" transform="translate(850 520)">
+    <ellipse cx="90" cy="150" rx="105" ry="22" fill="#3a2512" opacity=".35"/>
+    <path d="M10 20 H150 V105 A70 70 0 0 1 10 105 Z" fill="#fbf7ee"/>
+    <ellipse cx="80" cy="20" rx="70" ry="18" fill="#fffdf8"/>
+    <ellipse cx="80" cy="20" rx="56" ry="13" fill="#6b4423"/>
+    <path d="M150 40 A38 38 0 0 1 150 95" fill="none" stroke="#fbf7ee" stroke-width="16"/>
+    <ellipse cx="80" cy="20" rx="20" ry="6" fill="#c68a4e" opacity=".7"/>
+  </g>
+
+  <!-- チーズケーキ -->
+  <g filter="url(#shadow)" transform="translate(180 560)">
+    <ellipse cx="90" cy="120" rx="100" ry="20" fill="#3a2512" opacity=".3"/>
+    <path d="M20 60 L160 60 L145 112 L35 112 Z" fill="#f6d98a"/>
+    <path d="M20 60 L160 60 L152 76 L28 76 Z" fill="#fff3c4"/>
+    <circle cx="90" cy="52" r="9" fill="#c8503f"/>
+    <rect x="86" y="34" width="4" height="18" fill="#6b8e5a"/>
+  </g>
+
+  <!-- 写真っぽいざらつき -->
+  <rect width="1200" height="800" filter="url(#grain)" opacity=".5"/>
+</svg>
