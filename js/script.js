@@ -55,3 +55,65 @@ if (form) {
     }, 6000);
   });
 }
+/* ===================================================
+   3. メニューを menu.json から読み込んで描画
+   =================================================== */
+async function loadMenu() {
+  const statusEl  = document.getElementById('menu-status');
+  const gridEl    = document.getElementById('menu-grid');
+  const noteEl    = document.getElementById('menu-note');
+  const updatedEl = document.getElementById('menu-updated');
+
+  if (!gridEl) return; // メニューセクションが無いページでは何もしない
+
+  try {
+    // 常に最新を取りに行く（CDNキャッシュを避ける）
+    const res = await fetch('./menu.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    const data = await res.json();
+
+    // カテゴリを描画
+    gridEl.innerHTML = data.categories.map((cat) => `
+      <div class="menu-category">
+        <h3>${escapeHtml(cat.name)}</h3>
+        <ul>
+          ${cat.items.map((item) => `
+            <li>
+              <span class="item-name">
+                ${escapeHtml(item.name)}
+                ${item.description ? `<small class="item-desc">${escapeHtml(item.description)}</small>` : ''}
+              </span>
+              <span class="price">${Number(item.price).toLocaleString()}${escapeHtml(data.currency || '円')}</span>
+            </li>
+          `).join('')}
+        </ul>
+      </div>
+    `).join('');
+
+    noteEl.textContent = data.note || '';
+    updatedEl.textContent = data.updatedAt ? `最終更新：${data.updatedAt}` : '';
+
+    // 読み込み成功 → ステータス非表示
+    statusEl.textContent = '';
+    statusEl.hidden = true;
+
+  } catch (err) {
+    console.error('メニュー読み込み失敗:', err);
+    statusEl.textContent = 'メニューの読み込みに失敗しました。時間をおいて再度お試しください。';
+    statusEl.classList.add('is-error');
+  }
+}
+
+/* XSS対策の最小エスケープ */
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/* 実行 */
+loadMenu();

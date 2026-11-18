@@ -337,6 +337,36 @@ a:hover { text-decoration: underline; }
 
 .menu-category li:last-child { border-bottom: none; }
 
+/* ===== メニュー（JSON描画） ===== */
+.menu-status {
+  text-align: center;
+  color: #888;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.menu-status.is-error {
+  color: #b54747;
+  font-weight: bold;
+}
+
+.menu-updated {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 8px;
+}
+
+/* 各項目の説明文 */
+.item-name { display: flex; flex-direction: column; }
+
+.item-desc {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
 .price {
   font-weight: bold;
   color: var(--main-color);

@@ -116,34 +116,18 @@
     </div>
   </section>
 
-  <!-- ===== メニュー ===== -->
+  <!-- ===== メニュー（menu.json から描画） ===== -->
   <section id="menu" class="section">
     <h2>メニュー</h2>
-    <div class="menu-grid">
 
-      <div class="menu-category">
-        <h3>ドリンク</h3>
-        <ul>
-          <li><span>ブレンドコーヒー</span><span class="price">450円</span></li>
-          <li><span>カフェラテ</span><span class="price">520円</span></li>
-          <li><span>季節のフレッシュジュース</span><span class="price">550円</span></li>
-          <li><span>ほうじ茶ラテ</span><span class="price">480円</span></li>
-          <li><span>紅茶（ホット / アイス）</span><span class="price">450円</span></li>
-        </ul>
-      </div>
+    <!-- 読み込み中／エラー表示用 -->
+    <p class="menu-status" id="menu-status" aria-live="polite">読み込み中…</p>
 
-      <div class="menu-category">
-        <h3>スイーツ</h3>
-        <ul>
-          <li><span>チーズケーキ</span><span class="price">500円</span></li>
-          <li><span>季節のタルト</span><span class="price">580円</span></li>
-          <li><span>スコーン（クロテッドクリーム付）</span><span class="price">400円</span></li>
-          <li><span>自家製プリン</span><span class="price">450円</span></li>
-        </ul>
-      </div>
+    <!-- JS がカテゴリをここに挿入 -->
+    <div class="menu-grid" id="menu-grid"></div>
 
-    </div>
-    <p class="note">※ 表示価格は税込みです。季節によりメニューは変わります。</p>
+    <p class="note" id="menu-note"></p>
+    <p class="menu-updated" id="menu-updated"></p>
   </section>
 
   <!-- ===== アクセス ===== -->

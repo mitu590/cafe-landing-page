@@ -1,0 +1,30 @@
+{
+  "shopName": "喫茶 こもれび",
+  "updatedAt": "2025-01-15",
+  "currency": "円",
+  "note": "※ 表示価格は税込みです。季節によりメニューは変わります。",
+  "categories": [
+    {
+      "id": "drinks",
+      "name": "ドリンク",
+      "items": [
+        { "name": "ブレンドコーヒー", "price": 450, "description": "自家焙煎・中深煎り" },
+        { "name": "カフェラテ", "price": 520, "description": "ふんわりミルク" },
+        { "name": "季節のフレッシュジュース", "price": 550, "description": "今月はオレンジ" },
+        { "name": "ほうじ茶ラテ", "price": 480, "description": "香ばしい香り" },
+        { "name": "紅茶（ホット / アイス）", "price": 450, "description": "" }
+      ]
+    },
+    {
+      "id": "sweets",
+      "name": "スイーツ",
+      "items": [
+        { "name": "チーズケーキ", "price": 500, "description": "濃厚ベイクド" },
+        { "name": "季節のタルト", "price": 580, "description": "今月はりんご" },
+        { "name": "スコーン（クロテッドクリーム付）", "price": 400, "description": "プレーン／紅茶" },
+        { "name": "自家製プリン", "price": 450, "description": "固めの昔ながら" },
+        { "name": "本日の焼き菓子", "price": 380, "description": "日替わり" }
+      ]
+    }
+  ]
+}
